@@ -1,21 +1,5 @@
 package domain
 
-type Movable interface {
-	MoveTo(Pointy)
-	GetPosition() Pointy
-	IsStatic() bool
-	MakeStatic(bool)
-}
-
-type Pointy interface {
-	
-}
-
-type Point struct {
-	x float32
-	y float32
-}
-
 type Ball struct {
 	position Pointy
 }
