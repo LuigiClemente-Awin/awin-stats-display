@@ -1,4 +1,4 @@
-all: build run
+all: test build run
 
 build:
 	docker build -t pong .
@@ -6,4 +6,7 @@ build:
 run:
 	docker run --rm -it pong
 
-.PHONY: build run
+test:
+	go test ./...
+
+.PHONY: build run test
