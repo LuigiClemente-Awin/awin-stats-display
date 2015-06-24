@@ -5,13 +5,13 @@ import "testing"
 func TestPaddle(t *testing.T) {
 	// Arrange
 	paddle := new(Paddle)
-
+	point := Point{0, 2}
 	// Act
-	paddle.MoveTo(2)
+	paddle.MoveTo(point)
 
 	// Assert
 	position := paddle.GetPosition()
-	if position != 2 {
-		t.Error("Position should equal to 2");
+	if position.GetY() != 2.0 {
+		t.Error("Position should equal to 2 and is ", position.GetY(), position);
 	}
 }

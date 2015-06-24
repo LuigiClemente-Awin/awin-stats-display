@@ -11,3 +11,7 @@ func (b *Ball) MoveTo(newPosition Pointy) {
 func (b *Ball) GetPosition() Pointy {
 	return b.position
 }
+
+func (b *Ball) IsStatic() bool {
+	return false
+}
