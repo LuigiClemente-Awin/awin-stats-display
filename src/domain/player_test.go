@@ -14,3 +14,12 @@ func TestSetPaddle(t *testing.T) {
 	paddle := MakePaddle(0)
 	p.SetPaddle(paddle)
 }
+
+type MockPaddle struct {}
+
+func TestMovePaddleRandom(t *testing.T) {
+	p := MakePlayer(1)
+	paddle := new(MockPaddle)
+	p.SetPaddle(paddle)
+	p.MovePaddleRandom()
+}

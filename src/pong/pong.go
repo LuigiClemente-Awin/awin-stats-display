@@ -9,9 +9,7 @@ func main() {
 	p1 := domain.MakePlayer(1)
 	paddle1 := domain.MakePaddle(0)
 	p1.SetPaddle(paddle1)
-
-	p2 := domain.MakePlayer(2)
-	_ = p2
+	p1.MovePaddleRandom()
 	
 	fmt.Println("Paddle position:", paddle1.GetPosition())
 	//p1.MoveTo(domain.Point{});
