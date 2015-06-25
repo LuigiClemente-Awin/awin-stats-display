@@ -1,7 +1,12 @@
 package domain
 
-type paddle interface {
+import (
+	"math/rand"
+	"time"
+)
 
+type paddle interface {
+	MoveTo(Point)
 }
 
 type Player struct {
@@ -18,9 +23,12 @@ func (p *Player) SetPaddle(paddle paddle) {
 }
 
 func (p *Player) MovePaddleRandom() {
-
+	position := rand.Float32() * 4
+	p.paddle.MoveTo(Point{Y: position})
 }
 
 func MakePlayer(number uint) *Player {
+	rand.Seed( time.Now().UTC().UnixNano())
+
 	return &Player{number: number}
 }

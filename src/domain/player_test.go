@@ -15,11 +15,28 @@ func TestSetPaddle(t *testing.T) {
 	p.SetPaddle(paddle)
 }
 
-type MockPaddle struct {}
+type MockPaddle struct {
+	MoveToCallback func(Point)
+}
+
+func (m * MockPaddle) MoveTo(p Point) {
+	m.MoveToCallback(p)
+}
 
 func TestMovePaddleRandom(t *testing.T) {
+	// Arrange
 	p := MakePlayer(1)
-	paddle := new(MockPaddle)
+	var called bool
+	paddle := &MockPaddle{MoveToCallback: func(p Point) {
+		called = true
+	}}
 	p.SetPaddle(paddle)
+
+	// Act
 	p.MovePaddleRandom()
+	
+	// Assert
+	if !called {
+		t.Error("Move to method wasn't called on paddle")
+	}
 }
