@@ -15,3 +15,7 @@ func TestPaddle(t *testing.T) {
 		t.Error("Position should equal to 2 and is ", position.Y, position);
 	}
 }
+
+func TestMakePaddle(t *testing.T) {
+	MakePaddle(0)
+}

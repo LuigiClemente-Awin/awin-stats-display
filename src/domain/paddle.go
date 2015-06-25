@@ -1,6 +1,7 @@
 package domain
 
 type Paddle struct {
+	side uint
 	position Point
 }
 
@@ -10,4 +11,8 @@ func (p *Paddle) MoveTo(point Point) {
 
 func (p *Paddle) GetPosition() Point {
 	return p.position
+}
+
+func MakePaddle(side uint) *Paddle {
+	return &Paddle{side: side, position: Point{}}
 }

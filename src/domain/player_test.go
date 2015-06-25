@@ -8,3 +8,9 @@ func TestMakePlayer(t *testing.T) {
 		t.Error("Position isn't returned correctly")
 	}
 }
+
+func TestSetPaddle(t *testing.T) {
+	p := MakePlayer(1)
+	paddle := MakePaddle(0)
+	p.SetPaddle(paddle)
+}
