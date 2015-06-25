@@ -11,7 +11,7 @@ func TestPaddle(t *testing.T) {
 
 	// Assert
 	position := paddle.GetPosition()
-	if position.GetY() != 2.0 {
-		t.Error("Position should equal to 2 and is ", position.GetY(), position);
+	if position.Y != 2.0 {
+		t.Error("Position should equal to 2 and is ", position.Y, position);
 	}
 }

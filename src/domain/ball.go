@@ -1,17 +1,22 @@
 package domain
 
 type Ball struct {
-	position Pointy
+	position Point
+	isStatic bool
 }
 
-func (b *Ball) MoveTo(newPosition Pointy) {
+func (b *Ball) MoveTo(newPosition Point) {
 	b.position = newPosition
 }
 
-func (b *Ball) GetPosition() Pointy {
+func (b *Ball) GetPosition() Point {
 	return b.position
 }
 
 func (b *Ball) IsStatic() bool {
-	return false
+	return b.isStatic
+}
+
+func (b *Ball) MakeStatic(static bool) {
+	b.isStatic = static
 }

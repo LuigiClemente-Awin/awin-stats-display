@@ -1,7 +1,7 @@
 package domain
 
 type Movable interface {
-	MoveTo(Pointy)
-	GetPosition() Pointy
+	MoveTo(Point)
+	GetPosition() Point
 	IsStatic() bool
 }

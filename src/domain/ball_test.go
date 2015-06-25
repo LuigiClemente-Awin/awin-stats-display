@@ -2,19 +2,15 @@ package domain
 
 import "testing"
 
-type PointStub struct {}
-func (p *PointStub) GetX() float32 { return 0 }
-func (p *PointStub) GetY() float32 { return 0 }
-
 func TestMoveTo(t *testing.T) {
 	ball := new(Ball)
-	mockPoint := new(PointStub)
+	point := Point{1, 2}
 	// Arrange
-	ball.MoveTo(mockPoint)
+	ball.MoveTo(point)
 
 	// Assert
 	ballPosition := ball.GetPosition()
-	if ballPosition != mockPoint {
+	if ballPosition != point {
 		t.Error("Positiong not the same as passed in")
 	}
 }

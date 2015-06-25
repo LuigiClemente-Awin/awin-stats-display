@@ -1,18 +1,13 @@
 package domain
 
-type Side struct {
-
-}
-
 type Paddle struct {
-	side Side
 	position Point
 }
 
-func (p *Paddle) MoveTo(point Pointy) {
-	p.position.y = point.GetY();
+func (p *Paddle) MoveTo(point Point) {
+	p.position.Y = point.Y;
 }
 
-func (p *Paddle) GetPosition() Pointy {
+func (p *Paddle) GetPosition() Point {
 	return p.position
 }
