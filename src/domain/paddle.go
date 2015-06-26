@@ -13,6 +13,10 @@ func (p *Paddle) GetPosition() Point {
 	return p.position
 }
 
+func (p *Paddle) GetSide() uint {
+	return p.side
+}
+
 func MakePaddle(side uint) *Paddle {
 	return &Paddle{side: side, position: Point{}}
 }

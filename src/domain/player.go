@@ -23,7 +23,7 @@ func (p *Player) SetPaddle(paddle paddle) {
 }
 
 func (p *Player) MovePaddleRandom() {
-	position := rand.Float32() * 4
+	position := rand.Float32() * 3
 	p.paddle.MoveTo(Point{Y: position})
 }
 
