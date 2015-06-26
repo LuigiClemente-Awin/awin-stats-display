@@ -10,8 +10,9 @@ func main() {
 	paddle1 := domain.MakePaddle(0)
 	p1.SetPaddle(paddle1)
 	p1.MovePaddleRandom()
+
+	arena := domain.MakeArena(10, 4)
+	_ = arena
 	
 	fmt.Println("Paddle position:", paddle1.GetPosition())
-	//p1.MoveTo(domain.Point{});
-	//fmt.Println("Paddle position:", p1.GetPosition())
 }
