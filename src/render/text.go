@@ -37,7 +37,7 @@ func (t *TextRenderer) Render() {
 		return float32(math.Floor(float64(f) + .5))
 	}
 
-	output := make([]string, 4)
+	output := make([]string, 6)
 	// Loop through each object
 	for _, object := range t.objects {
 		// Type switch
@@ -46,22 +46,34 @@ func (t *TextRenderer) Render() {
 			output[0] = "---------------------------------"
 			output[1] = "               |                 "
 			output[2] = "               |                 "
-			output[3] = "---------------------------------"
+			output[3] = "               |                 "
+			output[4] = "               |                 "
+			output[5] = "---------------------------------"
 		case *domain.Paddle:
-			yPosition := int(round(object.GetPosition().Y))
+			yPosition := int(round(object.GetPosition().Y)) + 1
 			side := object.GetSide()
 			row := output[yPosition]
-			middle := row[1:len(row)-1]
 			if side == 0 {
-				output[yPosition] = strings.Join([]string{"|", middle, " "}, "")
+				middle := row[1:len(row)]
+				output[yPosition] = strings.Join([]string{"|", middle}, "")
 			} else {
-				output[yPosition] = strings.Join([]string{" ", middle, "|"}, "")
+				middle := row[0:len(row)-1]
+				output[yPosition] = strings.Join([]string{middle, "|"}, "")
 			}
+		case *domain.Ball:
+			position := object.GetPosition()
+			y := int(round(position.Y))
+			x := int(round(position.X))
+			row := output[y]
+			left := row[0:x]
+			right := row[x+1:len(row)]
+			output[y] = strings.Join([]string{left, "o", right}, "")
 		default:
 			fmt.Println("Dunno", object)
 		}
 	}
 	
+	// Clear screen
 	for _, line := range output {
 		fmt.Println(line)
 	}

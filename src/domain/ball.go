@@ -20,3 +20,10 @@ func (b *Ball) IsStatic() bool {
 func (b *Ball) MakeStatic(static bool) {
 	b.isStatic = static
 }
+
+func MakeBall(x uint, y uint) *Ball {
+	fx := float32(x)
+	fy := float32(y)
+	point := Point{fx, fy}
+	return &Ball{ position: point }
+}
